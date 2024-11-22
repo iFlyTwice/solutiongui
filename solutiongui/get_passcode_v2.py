@@ -6,15 +6,17 @@ import traceback
 import uuid
 from enum import Enum
 from typing import Optional
+import threading
 
 try:
     import boto3
     import requests
     from requests_aws4auth import AWS4Auth
     from requests import Response
+    import customtkinter as ctk
 except ImportError:
     print(
-        "Run `pip install boto3 requests requests-aws4auth` to install the missing packages"
+        "Run `pip install boto3 requests requests-aws4auth customtkinter` to install the missing packages"
     )
     print(traceback.format_exc())
     exit(1)
@@ -73,9 +75,9 @@ def retry(f, times):
     """
     try:
         return f()
-    except:
+    except Exception as e:
         if times == 0:
-            raise
+            raise e
         else:
             return retry(f, times - 1)
 
@@ -196,49 +198,89 @@ def parse_sn(sn: str) -> Optional[str]:
         return groups[0]
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Example: \"python3 get_passcode.py \
-        -s 012345678910 \
-        -r us-east-1\".\
-        Available regions: \
-          \"us-east-1\" (for North America), \
-          \"eu-west-1\" (for Europe), \
-          \"ap-south-1\" (for South Asia Pacific regions), \
-          \"ap-northeast-1\" (for North-East Asia Pacific regions)."
-    )
-    parser.add_argument(
-        "-s", "--serial-number", required=True, help="Device serial number"
-    )
-    parser.add_argument(
-        "-r",
-        "--region",
-        type=Region,
-        required=False,
-        help="Region the device is enrolled in",
-    )
-    args = parser.parse_args()
-    if args.region:
-        regions = [args.region]
-    else:
+class PasscodeApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.title("Passcode Retriever")
+        self.geometry("400x300")
+        self.resizable(False, False)
+
+        # Serial Number Input
+        self.serial_label = ctk.CTkLabel(self, text="Device Serial Number:")
+        self.serial_label.pack(pady=(20, 5))
+        self.serial_entry = ctk.CTkEntry(self, width=300)
+        self.serial_entry.pack(pady=5)
+
+        # Region Selection
+        self.region_label = ctk.CTkLabel(self, text="Select Region:")
+        self.region_label.pack(pady=(20, 5))
+        self.region_var = ctk.StringVar(value="us-east-1")
         regions = [region.value for region in Region]
-    serial_number = parse_sn(args.serial_number)
-    if not serial_number:
-        print('  Error: invalid serial number')
-    else:
-        midway_helper = MidwayAuthHelper()
-        with multiprocessing.Pool(len(regions)) as pool:
-            results = pool.starmap(get_passcode, [(serial_number, region, midway_helper) for region in regions])
-            result = first_or_none(results, lambda res: "reported" in res[1])
-            if result:
-                region, data = result
-                print(f"Result for {region}:")
-                if "desired" in data and data["reported"] != data["desired"]:
-                    print(f'  Current passcode: {data["reported"]}, upcoming passcode: {data["desired"]}')
-                else:
-                    print(f'  Passcode: {data["reported"]}')
+        self.region_dropdown = ctk.CTkOptionMenu(self, values=regions, variable=self.region_var)
+        self.region_dropdown.pack(pady=5)
+
+        # Submit Button
+        self.submit_button = ctk.CTkButton(self, text="Get Passcode", command=self.fetch_passcode)
+        self.submit_button.pack(pady=(20, 10))
+
+        # Result Display
+        self.result_label = ctk.CTkLabel(self, text="", text_color="green")
+        self.result_label.pack(pady=5)
+
+        # Error Display
+        self.error_label = ctk.CTkLabel(self, text="", text_color="red")
+        self.error_label.pack(pady=5)
+
+        # Initialize MidwayAuthHelper
+        self.midway_helper = MidwayAuthHelper()
+
+    def fetch_passcode(self):
+        serial_number = self.serial_entry.get().strip()
+        region = self.region_var.get()
+
+        if not serial_number:
+            self.error_label.configure(text="Please enter a serial number.")
+            self.result_label.configure(text="")
+            return
+
+        parsed_sn = parse_sn(serial_number)
+        if not parsed_sn:
+            self.error_label.configure(text="Invalid serial number format.")
+            self.result_label.configure(text="")
+            return
+
+        self.error_label.configure(text="")
+        self.result_label.configure(text="Fetching passcode...")
+
+        # Run in a separate thread to avoid blocking the GUI
+        threading.Thread(target=self.retrieve_passcode, args=(parsed_sn, region), daemon=True).start()
+
+    def retrieve_passcode(self, serial_number, region):
+        region_enum = next((r for r in Region if r.value == region), None)
+        if not region_enum:
+            self.update_result("Selected region is invalid.", error=True)
+            return
+
+        region, data = get_passcode(serial_number, region, self.midway_helper)
+
+        if "error" in data:
+            self.update_result(f"Error: {data['error']}", error=True)
+        else:
+            if "desired" in data and data["reported"] != data["desired"]:
+                message = f"Current passcode: {data['reported']}\nUpcoming passcode: {data['desired']}"
             else:
-                for region, data in results:
-                    message = "  Passcode not found" if "error" not in data else f'  {data["error"]}'
-                    print(f"Result for {region}:")
-                    print(message)
+                message = f"Passcode: {data['reported']}"
+            self.update_result(message, error=False)
+
+    def update_result(self, message, error=False):
+        if error:
+            self.error_label.configure(text=message)
+            self.result_label.configure(text="")
+        else:
+            self.result_label.configure(text=message)
+            self.error_label.configure(text="")
+
+
+if __name__ == "__main__":
+    app = PasscodeApp()
+    app.mainloop()
