@@ -132,3 +132,47 @@
 2024-11-22 10:18:17,964 - ERROR - VPN connection is not active. Failed to resolve hostname.
 2024-11-22 10:33:41,398 - ERROR - VPN connection is not active. Failed to resolve hostname.
 2024-11-22 11:44:45,566 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 14:59:36,320 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 14:59:39,328 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 14:59:39,399 - INFO - Window icon set successfully.
+2024-11-22 14:59:39,399 - INFO - Maximize button disabled.
+2024-11-22 14:59:39,479 - INFO - System tray icon initialized successfully.
+2024-11-22 14:59:39,482 - INFO - TextBoxHandler added to logger.
+2024-11-22 14:59:39,482 - INFO - Window geometry loaded from gui_config.json: 800x576+488+124
+2024-11-22 14:59:39,659 - INFO - Security Key Added: Yubico YubiKey OTP+FIDO+CCID has been added.
+2024-11-22 14:59:39,662 - INFO - Detected new security key: Yubico YubiKey OTP+FIDO+CCID
+2024-11-22 14:59:46,689 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 14:59:51,289 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 14:59:51,937 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 15:05:06,124 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 15:05:06,125 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 15:05:06,761 - INFO - Application closed.
+2024-11-22 15:05:12,503 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:05:16,066 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 15:05:16,124 - INFO - Window icon set successfully.
+2024-11-22 15:05:16,125 - INFO - Maximize button disabled.
+2024-11-22 15:05:16,195 - INFO - System tray icon initialized successfully.
+2024-11-22 15:05:16,198 - INFO - TextBoxHandler added to logger.
+2024-11-22 15:05:16,200 - INFO - Window geometry loaded from gui_config.json: 800x576+1250+324
+2024-11-22 15:05:16,356 - INFO - Security Key Added: Yubico YubiKey OTP+FIDO+CCID has been added.
+2024-11-22 15:05:16,360 - INFO - Detected new security key: Yubico YubiKey OTP+FIDO+CCID
+2024-11-22 15:05:20,542 - INFO - Manage Zukey window initialized.
+2024-11-22 15:05:24,155 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 15:05:24,156 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 15:05:24,233 - INFO - Application closed.
+2024-11-22 15:05:26,906 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:05:56,728 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:05:58,259 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:06:09,765 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:06:13,797 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 15:06:13,916 - INFO - Window icon set successfully.
+2024-11-22 15:06:13,917 - INFO - Maximize button disabled.
+2024-11-22 15:06:13,987 - INFO - System tray icon initialized successfully.
+2024-11-22 15:06:13,990 - INFO - TextBoxHandler added to logger.
+2024-11-22 15:06:13,990 - INFO - Window geometry loaded from gui_config.json: 800x576+938+294
+2024-11-22 15:06:14,143 - INFO - Security Key Added: Yubico YubiKey OTP+FIDO+CCID has been added.
+2024-11-22 15:06:14,147 - INFO - Detected new security key: Yubico YubiKey OTP+FIDO+CCID
+2024-11-22 15:06:22,580 - INFO - Scanner APW button clicked.
+2024-11-22 15:06:33,252 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 15:06:33,252 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 15:06:33,408 - INFO - Application closed.
