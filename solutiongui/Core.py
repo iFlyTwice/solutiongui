@@ -107,7 +107,7 @@ def show_vpn_warning():  # {{ edit_new }}
         master=vpn_window,
         text="Please connect to the VPN before launching the application.",
         font=("Helvetica", 14),
-        text_color="red",
+        text_color="yellow",
         anchor="center"
     )
     warning_label.pack(pady=20, padx=20)
