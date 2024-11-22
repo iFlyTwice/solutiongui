@@ -89,3 +89,34 @@
 2024-11-22 00:19:20,003 - INFO - Window geometry saved to gui_config.json.
 2024-11-22 00:19:20,004 - INFO - Waiting for monitoring thread to stop...
 2024-11-22 00:19:20,929 - INFO - Application closed.
+2024-11-22 00:20:59,987 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:21:01,870 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:21:01,891 - INFO - Window icon set successfully.
+2024-11-22 00:21:01,891 - INFO - Maximize button disabled.
+2024-11-22 00:21:01,925 - INFO - System tray icon initialized successfully.
+2024-11-22 00:21:01,927 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:21:01,927 - INFO - Window geometry loaded from gui_config.json: 800x901+433+53
+2024-11-22 00:21:16,999 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 00:21:16,999 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 00:21:17,532 - INFO - Application closed.
+2024-11-22 00:28:37,481 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:28:40,417 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:28:40,437 - INFO - Window icon set successfully.
+2024-11-22 00:28:40,437 - INFO - Maximize button disabled.
+2024-11-22 00:28:40,471 - INFO - System tray icon initialized successfully.
+2024-11-22 00:28:40,473 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:28:40,474 - INFO - Window geometry loaded from gui_config.json: 800x901+433+53
+2024-11-22 00:31:14,025 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:31:15,957 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:31:15,976 - INFO - Window icon set successfully.
+2024-11-22 00:31:15,976 - INFO - Maximize button disabled.
+2024-11-22 00:31:16,011 - INFO - System tray icon initialized successfully.
+2024-11-22 00:31:16,013 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:31:16,013 - INFO - Window geometry loaded from gui_config.json: 800x901+433+53
+2024-11-22 00:31:27,185 - INFO - Manage Zukey window initialized.
+2024-11-22 00:31:41,449 - INFO - Manage Zukey window initialized.
+2024-11-22 00:31:44,230 - INFO - Manage Zukey window initialized.
+2024-11-22 00:31:48,734 - INFO - General Dashboard window opened.
+2024-11-22 00:32:01,948 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 00:32:01,948 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 00:32:02,596 - INFO - Application closed.

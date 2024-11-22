@@ -32,6 +32,9 @@ from automation import reset_security_key  # Ensure this import is present
 import tkinter as tk  # Added for VPN warning window
 from tkinter import messagebox  # Added for VPN warning window
 
+ctk.set_appearance_mode("System")  # {{ set_appearance_mode }} Set appearance mode to system default
+ctk.set_default_color_theme("blue")  # {{ set_default_color_theme }} Set default CTk color theme
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,  # Changed from DEBUG to INFO for optimization
