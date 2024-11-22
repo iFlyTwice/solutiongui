@@ -29,3 +29,63 @@
 2024-11-21 23:38:50,453 - INFO - Window geometry saved to gui_config.json.
 2024-11-21 23:38:50,454 - INFO - Waiting for monitoring thread to stop...
 2024-11-21 23:38:50,665 - INFO - Application closed.
+2024-11-21 23:50:13,590 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-21 23:51:20,263 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-21 23:51:22,150 - WARNING - icon.ico not found. Using default icon.
+2024-11-21 23:51:22,170 - INFO - Window icon set successfully.
+2024-11-21 23:51:22,170 - INFO - Maximize button disabled.
+2024-11-21 23:51:22,204 - INFO - System tray icon initialized successfully.
+2024-11-21 23:51:22,206 - INFO - TextBoxHandler added to logger.
+2024-11-21 23:51:22,206 - INFO - Window geometry loaded from gui_config.json: 800x901+576+61
+2024-11-21 23:51:28,747 - INFO - Window geometry saved to gui_config.json.
+2024-11-21 23:51:28,748 - INFO - Waiting for monitoring thread to stop...
+2024-11-21 23:51:29,537 - INFO - Application closed.
+2024-11-22 00:12:04,584 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:12:08,297 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:12:08,321 - INFO - Window icon set successfully.
+2024-11-22 00:12:08,321 - INFO - Maximize button disabled.
+2024-11-22 00:12:08,356 - INFO - System tray icon initialized successfully.
+2024-11-22 00:12:08,358 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:12:08,359 - INFO - Window geometry loaded from gui_config.json: 800x901+576+61
+2024-11-22 00:12:13,181 - INFO - Scanner APW button clicked.
+2024-11-22 00:12:19,108 - INFO - Manage Zukey window initialized.
+2024-11-22 00:12:21,886 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 00:12:23,059 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 00:12:23,060 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 00:12:23,961 - INFO - Application closed.
+2024-11-22 00:12:30,331 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:12:31,894 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:12:31,913 - INFO - Window icon set successfully.
+2024-11-22 00:12:31,913 - INFO - Maximize button disabled.
+2024-11-22 00:12:31,949 - INFO - System tray icon initialized successfully.
+2024-11-22 00:12:31,951 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:12:31,951 - INFO - Window geometry loaded from gui_config.json: 800x901+576+61
+2024-11-22 00:13:04,279 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:13:04,283 - ERROR - VPN is not connected. Cannot access MIDWAY ACCESS.
+2024-11-22 00:13:52,978 - INFO - General Dashboard window opened.
+2024-11-22 00:13:57,178 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:13:57,180 - ERROR - VPN is not connected. Cannot access MIDWAY ACCESS.
+2024-11-22 00:14:26,989 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 00:14:26,990 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 00:14:27,937 - INFO - Application closed.
+2024-11-22 00:14:37,686 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:14:54,872 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:15:06,131 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:15:20,455 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:18:42,991 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:18:53,824 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:18:53,845 - INFO - Window icon set successfully.
+2024-11-22 00:18:53,846 - INFO - Maximize button disabled.
+2024-11-22 00:18:53,882 - INFO - System tray icon initialized successfully.
+2024-11-22 00:18:53,884 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:18:53,884 - INFO - Window geometry loaded from gui_config.json: 800x901+433+53
+2024-11-22 00:19:16,283 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 00:19:18,677 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 00:19:18,699 - INFO - Window icon set successfully.
+2024-11-22 00:19:18,700 - INFO - Maximize button disabled.
+2024-11-22 00:19:18,751 - INFO - System tray icon initialized successfully.
+2024-11-22 00:19:18,753 - INFO - TextBoxHandler added to logger.
+2024-11-22 00:19:18,754 - INFO - Window geometry loaded from gui_config.json: 800x901+433+53
+2024-11-22 00:19:20,003 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 00:19:20,004 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 00:19:20,929 - INFO - Application closed.

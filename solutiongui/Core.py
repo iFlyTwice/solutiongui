@@ -29,6 +29,8 @@ from gui_helpers import create_security_keys_list  # Ensure this import is prese
 import cv2  # Added for image processing and template matching
 import numpy as np  # Added for array manipulations
 from automation import reset_security_key  # Ensure this import is present
+import tkinter as tk  # Added for VPN warning window
+from tkinter import messagebox  # Added for VPN warning window
 
 # Configure logging
 logging.basicConfig(
@@ -1310,59 +1312,37 @@ class TextBoxHandler(logging.Handler):
         log_entry = self.format(record)
         self.log_queue.put(log_entry)  # {{ edit_2 }}
 
-def check_and_install_dependencies():
+def check_dependencies():
     """
-    Installs dependencies if running the app for the first time.
-    Skips installation if the `installed.flag` exists.
+    Verifies that all required dependencies are installed.
+    
+    Raises:
+        EnvironmentError: If any dependencies are missing.
     """
-    INSTALL_FLAG = "installed.flag"
-    REQUIREMENTS_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'requirements.txt'))  # Updated path to requirements.txt
-    
-    if os.path.exists(INSTALL_FLAG):
-        logging.info("Dependencies are already installed. Skipping installation.")
-        return
-    
-    logging.info("Installing dependencies for the first time...")
-    
-    # Step 1: Install Python dependencies
-    if os.path.exists(REQUIREMENTS_FILE):
-        try:
-            logging.info(f"Installing Python dependencies from {REQUIREMENTS_FILE}...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", REQUIREMENTS_FILE])
-            logging.info("Python dependencies installed successfully.")
-        except subprocess.CalledProcessError as e:
-            logging.error(f"Failed to install Python dependencies: {e}")
-            sys.exit(1)
-    else:
-        logging.error(f"{REQUIREMENTS_FILE} not found. Cannot install Python dependencies.")
-        sys.exit(1)
-    
-    # Step 2: Install any required DLLs or system packages
+    missing = []
     try:
-        logging.info("Installing system dependencies...")
-        
-        # Example: Install a DLL or system package
-        # Uncomment and modify the following lines as needed
-        # subprocess.check_call(["choco", "install", "somepackage", "-y"])  # Windows example
-        # subprocess.check_call(["sudo", "apt", "install", "somepackage", "-y"])  # Linux example
-        
-        logging.info("System dependencies installed successfully.")
-    except subprocess.CalledProcessError as e:
-        logging.error(f"Failed to install system dependencies: {e}")
-        sys.exit(1)
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        missing.append("Playwright")
     
-    # Step 3: Create the installation flag
-    with open(INSTALL_FLAG, "w") as f:
-        f.write("Dependencies installed.\n")
+    try:
+        import hid
+    except ImportError:
+        missing.append("HID Library")
     
-    logging.info("Installation process completed successfully. Flag created.")
+    if missing:
+        raise EnvironmentError(f"Missing dependencies: {', '.join(missing)}")
 
-def main():  # {{ edit_25 }}
+def main():  # {{ edit_main_function }}
     """
     Main entry point of the application.
-    Checks VPN connectivity before launching the main application.
+    Checks VPN connectivity and dependencies before launching the main application.
     """
-    # check_and_install_dependencies()  # {{ removed }}
+    try:
+        check_dependencies()  # Ensure all dependencies are installed
+    except EnvironmentError as e:
+        logging.error(e)
+        sys.exit(1)  # Exit the application if dependencies are missing
     
     if not is_vpn_connected():
         show_vpn_warning()
