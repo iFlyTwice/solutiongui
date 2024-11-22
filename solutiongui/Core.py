@@ -1316,7 +1316,7 @@ def check_and_install_dependencies():
     Skips installation if the `installed.flag` exists.
     """
     INSTALL_FLAG = "installed.flag"
-    REQUIREMENTS_FILE = "requirements.txt"
+    REQUIREMENTS_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'requirements.txt'))  # Updated path to requirements.txt
     
     if os.path.exists(INSTALL_FLAG):
         logging.info("Dependencies are already installed. Skipping installation.")
@@ -1362,7 +1362,7 @@ def main():  # {{ edit_25 }}
     Main entry point of the application.
     Checks VPN connectivity before launching the main application.
     """
-    check_and_install_dependencies()
+    # check_and_install_dependencies()  # {{ removed }}
     
     if not is_vpn_connected():
         show_vpn_warning()
