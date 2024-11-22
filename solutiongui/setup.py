@@ -18,7 +18,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'quicklinks-dashboard=core.Core:main',
+            'quicklinks-dashboard=solutiongui.Core:main',
         ],
     },
     author='Your Name',

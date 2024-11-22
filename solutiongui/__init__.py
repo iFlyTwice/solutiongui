@@ -1,0 +1,1 @@
+# This file makes 'solutiongui' a Python package 

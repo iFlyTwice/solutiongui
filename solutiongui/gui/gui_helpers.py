@@ -1,6 +1,6 @@
 import customtkinter as ctk
 import logging
-import manage_zukey  # Add this import
+from . import manage_zukey  # Changed to relative import
 # Add more GUI-related imports if necessary
 
 def create_window_controls(root, on_closing_callback, on_minimize_callback):
@@ -179,3 +179,7 @@ def set_window_size(root, width=768, height=958):
 
     # Set the geometry of the window
     root.geometry(f"{width}x{height}+{position_x}+{position_y}")
+
+def some_helper_function():
+    from . import manage_zukey  # Changed to relative import
+    # ... rest of your code ...

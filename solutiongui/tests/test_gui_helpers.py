@@ -1,7 +1,7 @@
 import sys
 import os
 import unittest
-from core.gui_helpers import set_window_size
+from solutiongui.gui.gui_helpers import set_window_size
 
 # Add the project root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FutureUpdate')))
