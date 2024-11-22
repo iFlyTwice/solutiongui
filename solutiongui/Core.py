@@ -81,7 +81,7 @@ def is_vpn_connected(test_url=VPN_CHECK_URL):  # {{ edit_new }}
 
 def show_vpn_warning():  # {{ edit_new }}
     """
-    Shows a custom window indicating that the VPN connection is required, with an option to proceed without VPN.
+    Shows a custom window indicating that the VPN connection is required, with additional enhancements.
     """
     def on_checkbox_toggle():
         # Enable or disable the "Continue" button based on checkbox state
@@ -97,20 +97,31 @@ def show_vpn_warning():  # {{ edit_new }}
         app = QuickLinksApp(root)  # Initialize the QuickLinksApp
         root.mainloop()  # Start the main event loop
 
+    def open_help_page():
+        """
+        Opens the help page or documentation for VPN setup.
+        """
+        messagebox.showinfo("Help", "Please connect to the VPN by following the instructions in the documentation.")
+
     # Create VPN warning window
     vpn_window = ctk.CTk()
     vpn_window.title("VPN Connection Required")
     vpn_window.geometry("400x300")
 
+    # Add fade-in effect
+    vpn_window.attributes("-alpha", 0)  # Set initial transparency
+    for i in range(10):
+        vpn_window.after(100 * i, lambda alpha=i / 10: vpn_window.attributes("-alpha", alpha))
+
     # Add a label with the warning message
     warning_label = ctk.CTkLabel(
         master=vpn_window,
         text="Please connect to the VPN before launching the application.",
-        font=("Helvetica", 14),
+        font=("Helvetica", 16, "bold"),  # Increase font size and make it bold
         text_color="yellow",
         anchor="center"
     )
-    warning_label.pack(pady=20, padx=20)
+    warning_label.pack(pady=30, padx=20)  # Increase padding for better layout
 
     # Add a checkbox to proceed without VPN
     proceed_var = ctk.BooleanVar()
@@ -129,9 +140,31 @@ def show_vpn_warning():  # {{ edit_new }}
         command=on_continue_click,
         state="disabled",  # Disabled by default
         width=120,
-        height=30
+        height=30,
+        hover_color="lightblue",  # Add hover color for visual feedback
+        corner_radius=10  # Rounded corners
     )
     continue_button.pack(pady=10)
+
+    # Add a "Retry VPN Check" button
+    retry_button = ctk.CTkButton(
+        master=vpn_window,
+        text="Retry VPN Check",
+        command=lambda: retry_vpn_check(vpn_window, warning_label),
+        width=120,
+        height=30
+    )
+    retry_button.pack(pady=10)
+
+    # Add a "Help" button
+    help_button = ctk.CTkButton(
+        master=vpn_window,
+        text="Help",
+        command=open_help_page,  # Function to open a help page or documentation
+        width=100,
+        height=30
+    )
+    help_button.pack(pady=10)
 
     # Add an "Exit" button
     exit_button = ctk.CTkButton(
@@ -144,6 +177,15 @@ def show_vpn_warning():  # {{ edit_new }}
     exit_button.pack(pady=10)
 
     vpn_window.mainloop()
+
+def retry_vpn_check(vpn_window, warning_label):
+    """
+    Retries the VPN connection check and updates the warning message accordingly.
+    """
+    if is_vpn_connected():
+        messagebox.showinfo("VPN Status", "VPN connection is active.")
+    else:
+        messagebox.showerror("VPN Status", "VPN connection is still not active.")
 
 def save_window_geometry(root):
     """
