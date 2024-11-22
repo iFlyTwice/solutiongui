@@ -106,13 +106,23 @@ def show_vpn_warning():  # {{ edit_new }}
     # Create VPN warning window
     vpn_window = ctk.CTk()
     vpn_window.title("VPN Connection Required")
-    vpn_window.geometry("400x300")
-
+    
+    # Set fixed size and disable resizing
+    vpn_window.geometry("500x400")  # Changed from "400x300" to "500x400"
+    vpn_window.resizable(False, False)  # Disable window resizing
+    
+    # Center the window on the screen
+    screen_width = vpn_window.winfo_screenwidth()
+    screen_height = vpn_window.winfo_screenheight()
+    position_x = (screen_width // 2) - (500 // 2)
+    position_y = (screen_height // 2) - (400 // 2)
+    vpn_window.geometry(f"500x400+{position_x}+{position_y}")
+    
     # Add fade-in effect
     vpn_window.attributes("-alpha", 0)  # Set initial transparency
     for i in range(10):
         vpn_window.after(100 * i, lambda alpha=i / 10: vpn_window.attributes("-alpha", alpha))
-
+    
     # Add a label with the warning message
     warning_label = ctk.CTkLabel(
         master=vpn_window,
@@ -121,8 +131,8 @@ def show_vpn_warning():  # {{ edit_new }}
         text_color="yellow",
         anchor="center"
     )
-    warning_label.pack(pady=30, padx=20)  # Increase padding for better layout
-
+    warning_label.pack(pady=20, padx=20)  # Ensure spacing around the label
+    
     # Add a checkbox to proceed without VPN
     proceed_var = ctk.BooleanVar()
     proceed_checkbox = ctk.CTkCheckBox(
@@ -131,8 +141,8 @@ def show_vpn_warning():  # {{ edit_new }}
         variable=proceed_var,
         command=on_checkbox_toggle
     )
-    proceed_checkbox.pack(pady=10)
-
+    proceed_checkbox.pack(pady=10)  # Add padding for the checkbox
+    
     # Add a "Continue" button, initially disabled
     continue_button = ctk.CTkButton(
         master=vpn_window,
@@ -145,7 +155,7 @@ def show_vpn_warning():  # {{ edit_new }}
         corner_radius=10  # Rounded corners
     )
     continue_button.pack(pady=10)
-
+    
     # Add a "Retry VPN Check" button
     retry_button = ctk.CTkButton(
         master=vpn_window,
@@ -155,7 +165,7 @@ def show_vpn_warning():  # {{ edit_new }}
         height=30
     )
     retry_button.pack(pady=10)
-
+    
     # Add a "Help" button
     help_button = ctk.CTkButton(
         master=vpn_window,
@@ -165,7 +175,7 @@ def show_vpn_warning():  # {{ edit_new }}
         height=30
     )
     help_button.pack(pady=10)
-
+    
     # Add an "Exit" button
     exit_button = ctk.CTkButton(
         master=vpn_window,
@@ -175,7 +185,7 @@ def show_vpn_warning():  # {{ edit_new }}
         height=30
     )
     exit_button.pack(pady=10)
-
+    
     vpn_window.mainloop()
 
 def retry_vpn_check(vpn_window, warning_label):

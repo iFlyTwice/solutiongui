@@ -28,3 +28,22 @@
 2024-11-22 01:02:46,071 - INFO - Application closed.
 2024-11-22 01:02:48,297 - ERROR - VPN connection is not active. Failed to resolve hostname.
 2024-11-22 01:03:56,405 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:10:37,342 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:10:53,509 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:11:08,719 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:11:11,553 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:11:11,573 - INFO - Window icon set successfully.
+2024-11-22 01:11:11,573 - INFO - Maximize button disabled.
+2024-11-22 01:11:11,609 - INFO - System tray icon initialized successfully.
+2024-11-22 01:11:11,611 - INFO - TextBoxHandler added to logger.
+2024-11-22 01:11:11,612 - INFO - Window geometry loaded from gui_config.json: 800x576+576+61
+2024-11-22 01:11:11,718 - INFO - Security Key Added: Amazon ZUKEY 2 HID has been added.
+2024-11-22 01:11:11,720 - INFO - Detected new security key - Vendor ID: 0x1949, Product ID: 0x0429
+2024-11-22 01:11:27,942 - INFO - Double-clicked on security key: Amazon ZUKEY 2 HID
+2024-11-22 01:11:27,943 - INFO - Opening Windows Hello setup for security key: Amazon ZUKEY 2 HID
+2024-11-22 01:11:33,326 - INFO - Looking for accounts_button.png on the screen...
+2024-11-22 01:11:33,363 - ERROR - Template image accounts_button.png not found.
+2024-11-22 01:11:33,364 - ERROR - Failed to locate and click on accounts_button.png.
+2024-11-22 01:12:04,696 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 01:12:04,696 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 01:12:05,548 - INFO - Application closed.
