@@ -176,3 +176,28 @@
 2024-11-22 15:06:33,252 - INFO - Window geometry saved to gui_config.json.
 2024-11-22 15:06:33,252 - INFO - Waiting for monitoring thread to stop...
 2024-11-22 15:06:33,408 - INFO - Application closed.
+2024-11-22 15:15:12,309 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:15:14,051 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 15:15:14,101 - INFO - Window icon set successfully.
+2024-11-22 15:15:14,102 - INFO - Maximize button disabled.
+2024-11-22 15:15:14,171 - INFO - System tray icon initialized successfully.
+2024-11-22 15:15:14,174 - INFO - TextBoxHandler added to logger.
+2024-11-22 15:15:14,174 - INFO - Window geometry loaded from gui_config.json: 800x918+1011+316
+2024-11-22 15:15:14,356 - INFO - Security Key Added: Yubico YubiKey OTP+FIDO+CCID has been added.
+2024-11-22 15:15:14,360 - INFO - Detected new security key: Yubico YubiKey OTP+FIDO+CCID
+2024-11-22 15:15:17,536 - INFO - Scanner APW button clicked.
+2024-11-22 15:15:27,217 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 15:15:27,218 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 15:15:27,946 - INFO - Application closed.
+2024-11-22 15:16:34,336 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 15:16:37,238 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 15:16:37,294 - INFO - Window icon set successfully.
+2024-11-22 15:16:37,295 - INFO - Maximize button disabled.
+2024-11-22 15:16:37,367 - INFO - System tray icon initialized successfully.
+2024-11-22 15:16:37,370 - INFO - TextBoxHandler added to logger.
+2024-11-22 15:16:37,370 - INFO - Window geometry loaded from gui_config.json: 800x918+715+166
+2024-11-22 15:16:37,545 - INFO - Security Key Added: Yubico YubiKey OTP+FIDO+CCID has been added.
+2024-11-22 15:16:37,612 - INFO - Detected new security key: Yubico YubiKey OTP+FIDO+CCID
+2024-11-22 15:16:50,315 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 15:16:50,315 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 15:16:51,190 - INFO - Application closed.
