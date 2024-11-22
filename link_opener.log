@@ -47,3 +47,85 @@
 2024-11-22 01:12:04,696 - INFO - Window geometry saved to gui_config.json.
 2024-11-22 01:12:04,696 - INFO - Waiting for monitoring thread to stop...
 2024-11-22 01:12:05,548 - INFO - Application closed.
+2024-11-22 01:16:37,561 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:16:41,550 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:16:41,571 - INFO - Window icon set successfully.
+2024-11-22 01:16:41,572 - INFO - Maximize button disabled.
+2024-11-22 01:16:41,607 - INFO - System tray icon initialized successfully.
+2024-11-22 01:16:41,609 - INFO - TextBoxHandler added to logger.
+2024-11-22 01:16:41,610 - INFO - Window geometry loaded from gui_config.json: 800x576+488+124
+2024-11-22 01:16:41,716 - INFO - Security Key Added: Amazon ZUKEY 2 HID has been added.
+2024-11-22 01:16:41,718 - INFO - Detected new security key - Vendor ID: 0x1949, Product ID: 0x0429
+2024-11-22 01:16:46,367 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 01:16:46,368 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 01:16:46,884 - INFO - Application closed.
+2024-11-22 01:18:20,588 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:18:22,401 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:18:22,420 - INFO - Window icon set successfully.
+2024-11-22 01:18:22,421 - INFO - Maximize button disabled.
+2024-11-22 01:18:22,454 - INFO - System tray icon initialized successfully.
+2024-11-22 01:18:22,455 - INFO - TextBoxHandler added to logger.
+2024-11-22 01:18:22,456 - INFO - Window geometry loaded from gui_config.json: 800x576+488+124
+2024-11-22 01:18:22,561 - INFO - Security Key Added: Amazon ZUKEY 2 HID has been added.
+2024-11-22 01:18:22,563 - INFO - Detected new security key - Vendor ID: 0x1949, Product ID: 0x0429
+2024-11-22 01:18:29,280 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 01:18:29,281 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 01:18:29,798 - INFO - Application closed.
+2024-11-22 01:19:49,723 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:19:53,531 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:19:53,552 - INFO - Window icon set successfully.
+2024-11-22 01:19:53,553 - INFO - Maximize button disabled.
+2024-11-22 01:21:43,357 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:24:09,525 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:24:18,029 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:24:18,049 - INFO - Window icon set successfully.
+2024-11-22 01:24:18,049 - INFO - Maximize button disabled.
+2024-11-22 01:24:43,643 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:24:46,878 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:24:46,903 - INFO - Window icon set successfully.
+2024-11-22 01:24:46,903 - INFO - Maximize button disabled.
+2024-11-22 01:25:05,059 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:25:07,104 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:25:07,128 - INFO - Window icon set successfully.
+2024-11-22 01:25:07,128 - INFO - Maximize button disabled.
+2024-11-22 01:26:33,867 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:26:35,663 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:26:35,686 - INFO - Window icon set successfully.
+2024-11-22 01:26:35,687 - INFO - Maximize button disabled.
+2024-11-22 01:26:35,720 - INFO - System tray icon initialized successfully.
+2024-11-22 01:26:35,720 - INFO - TextBoxHandler added to logger.
+2024-11-22 01:26:35,721 - INFO - Window geometry loaded from gui_config.json: 800x576+488+124
+2024-11-22 01:26:35,825 - ERROR - Error monitoring security keys: bad listbox index "1.0": must be active, anchor, end, @x,y, or a number
+2024-11-22 01:26:38,411 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 01:26:38,411 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 01:26:38,911 - INFO - Application closed.
+2024-11-22 01:27:28,151 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:27:30,387 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:27:30,408 - INFO - Window icon set successfully.
+2024-11-22 01:27:30,408 - INFO - Maximize button disabled.
+2024-11-22 01:28:02,307 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:28:04,414 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:28:04,433 - INFO - Window icon set successfully.
+2024-11-22 01:28:04,434 - INFO - Maximize button disabled.
+2024-11-22 01:28:32,794 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:28:34,601 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:28:34,627 - INFO - Window icon set successfully.
+2024-11-22 01:28:34,628 - INFO - Maximize button disabled.
+2024-11-22 01:31:52,439 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 01:31:55,024 - WARNING - icon.ico not found. Using default icon.
+2024-11-22 01:31:55,047 - INFO - Window icon set successfully.
+2024-11-22 01:31:55,047 - INFO - Maximize button disabled.
+2024-11-22 01:31:55,086 - INFO - System tray icon initialized successfully.
+2024-11-22 01:31:55,088 - INFO - TextBoxHandler added to logger.
+2024-11-22 01:31:55,088 - INFO - Window geometry loaded from gui_config.json: 800x576+488+124
+2024-11-22 01:31:55,198 - INFO - Security Key Added: Amazon ZUKEY 2 HID has been added.
+2024-11-22 01:31:55,200 - INFO - Detected new security key - Vendor ID: 0x1949, Product ID: 0x0429
+2024-11-22 01:31:58,265 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 01:31:59,620 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 01:32:04,096 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 01:32:06,102 - WARNING - Double-clicked but no valid key was found.
+2024-11-22 01:32:14,058 - INFO - Manage Zukey window initialized.
+2024-11-22 01:32:15,740 - INFO - General Dashboard window opened.
+2024-11-22 01:32:28,846 - INFO - Window geometry saved to gui_config.json.
+2024-11-22 01:32:28,846 - INFO - Waiting for monitoring thread to stop...
+2024-11-22 01:32:29,350 - INFO - Application closed.

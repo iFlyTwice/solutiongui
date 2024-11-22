@@ -1264,30 +1264,29 @@ class QuickLinksApp:
             logging.error("VPN connection is not active. Failed to resolve hostname.")
             return False
 
-    def on_security_key_double_click(self, event):  # {{ on_security_key_double_click }}
+    def on_security_key_double_click(self, security_keys_list):  # {{ on_security_key_double_click }}
         """
         Handles double-click events on the security keys list.
 
         Args:
-            event: The Tkinter event object.
+            security_keys_list (CTkTextbox): The textbox widget simulating the security key list.
         """
         try:
-            # Get the selected line from the security_keys_list
-            widget = event.widget
-            cursor_index = widget.index(f"@{event.x},{event.y}")  # Get index from mouse click location
-            line_start = cursor_index.split(".")[0]  # Extract line number
-            key_name = widget.get(f"{line_start}.0", f"{line_start}.end").strip()  # Extract text from the line
+            # Get the cursor position within the textbox
+            cursor_position = security_keys_list.index("@%d,%d" % (security_keys_list.winfo_pointerx(), security_keys_list.winfo_pointery()))
+            line_start = cursor_position.split(".")[0]
+            key_name = security_keys_list.get(f"{line_start}.0", f"{line_start}.end").strip()
 
-            if key_name:  # If a key name is found, proceed
+            if key_name:
                 logging.info(f"Double-clicked on security key: {key_name}")
                 self.open_windows_hello_setup(key_name)
             else:
                 logging.warning("Double-clicked but no valid key was found.")
-                self.update_notification("No valid security key was selected.", "red")  # {{ replace_messagebox }}
+                self.update_notification("No valid security key was selected.", "red")
         except Exception as e:
             logging.error(f"Error handling double-click event: {e}")
-            self.update_notification(f"Error: An error occurred while handling the double-click event.\n{e}", "red")  # {{ replace_messagebox_error }}
-
+            self.update_notification(f"Error: An error occurred while handling the double-click event.\n{e}", "red")
+    
     def reset_security_key(self):  # {{ edit_reset_security_key }}
         """
         Triggers the reset_security_key automation.

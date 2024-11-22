@@ -123,16 +123,16 @@ def toggle_pin_visibility(pin_entry, show_pin_button, pin_visible):
         show_pin_button.configure(text="Hide")
         return True
 
-def create_security_keys_list(root, double_click_callback):
+def create_security_keys_list(root, on_key_double_click):
     """
-    Creates and packs the security keys list view on the right side of the window.
+    Creates and packs the security keys list view using CTkTextbox.
 
     Args:
         root (ctk.CTk): The main window instance.
-        double_click_callback (function): Callback function for double-clicking an item.
+        on_key_double_click (function): Callback function to handle double-click events.
 
     Returns:
-        ctk.CTkTextbox: The textbox widget displaying security keys.
+        ctk.CTkTextbox: The textbox widget simulating a listbox for security keys.
     """
     security_keys_frame = ctk.CTkFrame(master=root)
     security_keys_frame.pack(pady=20, padx=10, fill="y", side="right", expand=False)
@@ -140,11 +140,12 @@ def create_security_keys_list(root, double_click_callback):
     security_keys_label = ctk.CTkLabel(master=security_keys_frame, text="Connected Security Keys:")
     security_keys_label.pack(pady=5)
 
-    security_keys_list = ctk.CTkTextbox(master=security_keys_frame, width=200, height=300, state="disabled")
-    security_keys_list.pack(pady=5, fill="both", expand=True)
+    # Create CTkTextbox to display security keys
+    security_keys_list = ctk.CTkTextbox(master=security_keys_frame, width=200, height=300)
+    security_keys_list.pack(pady=5)
 
-    # Add a double-click event to trigger the callback
-    security_keys_list.bind("<Double-1>", double_click_callback)
+    # Bind double-click event to the callback function
+    security_keys_list.bind("<Double-Button-1>", lambda event: on_key_double_click(security_keys_list))
 
     return security_keys_list
 

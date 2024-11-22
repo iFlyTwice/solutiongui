@@ -167,15 +167,16 @@ def create_window_controls(root, on_closing_callback, on_minimize_callback):
     )
     exit_button.pack(side="left", padx=5)
 
-def create_security_keys_list(root):
+def create_security_keys_list(root, on_key_double_click):
     """
     Creates and packs the security keys list view on the right side of the window.
 
     Args:
         root (ctk.CTk): The main window instance.
+        on_key_double_click (function): Callback function to handle double-click events.
     
     Returns:
-        ctk.CTkTextbox: The textbox widget displaying security keys.
+        ctk.CTkListbox: The listbox widget displaying security keys.
     """
     security_keys_frame = ctk.CTkFrame(master=root)
     security_keys_frame.pack(pady=20, padx=10, fill="y", side="right", expand=False)
@@ -183,8 +184,12 @@ def create_security_keys_list(root):
     security_keys_label = ctk.CTkLabel(master=security_keys_frame, text="Connected Security Keys:")
     security_keys_label.pack(pady=5)
 
-    security_keys_list = ctk.CTkTextbox(master=security_keys_frame, width=200, height=300, state="disabled")
-    security_keys_list.pack(pady=5)
+    # Use a widget that supports double-click events
+    security_keys_list = ctk.CTkListbox(master=security_keys_frame, width=200, height=300)
+    security_keys_list.pack(pady=5, fill="both", expand=True)
+
+    # Bind the double-click event to the callback function
+    security_keys_list.bind("<Double-Button-1>", lambda event: on_key_double_click(security_keys_list))
 
     return security_keys_list
 
@@ -201,6 +206,25 @@ def update_security_keys_list(security_keys_list, keys):
     for key in keys:
         security_keys_list.insert("end", f"{key}\n")
     security_keys_list.configure(state="disabled")
+
+def on_key_double_click(security_keys_list):
+    """
+    Handles double-click events on a security key.
+
+    Args:
+        security_keys_list (CTkListbox): The listbox widget containing security keys.
+    """
+    # Get the selected item
+    selected_index = security_keys_list.curselection()
+    if not selected_index:
+        return  # No item selected
+
+    selected_key = security_keys_list.get(selected_index[0])
+    logging.info(f"Double-clicked on key: {selected_key}")
+    print(f"Double-clicked on key: {selected_key}")
+
+    # Trigger automation process for the selected key
+    initiate_reset_security_key(selected_key)  # Adjust to your automation logic
 
 if __name__ == "__main__":
     root = ctk.CTk()
