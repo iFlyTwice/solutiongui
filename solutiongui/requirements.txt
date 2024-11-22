@@ -9,3 +9,6 @@ pyautogui
 keyboard
 opencv-python
 numpy
+hidapi>=0.10.0  # Added hidapi to support HID device interactions
+win10toast>=0.9.0  # Added win10toast for system notifications
+pywinauto>=0.6.8  # Added pywinauto for automating Windows GUI

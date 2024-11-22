@@ -129,3 +129,6 @@
 2024-11-22 01:32:28,846 - INFO - Window geometry saved to gui_config.json.
 2024-11-22 01:32:28,846 - INFO - Waiting for monitoring thread to stop...
 2024-11-22 01:32:29,350 - INFO - Application closed.
+2024-11-22 10:18:17,964 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 10:33:41,398 - ERROR - VPN connection is not active. Failed to resolve hostname.
+2024-11-22 11:44:45,566 - ERROR - VPN connection is not active. Failed to resolve hostname.

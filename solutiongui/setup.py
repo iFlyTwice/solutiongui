@@ -11,7 +11,10 @@ setup(
         'Pillow',
         'playwright',
         'plyer',
-        'python-dotenv'
+        'python-dotenv',
+        'hidapi>=0.10.0',
+        'win10toast>=0.9.0',
+        'pywinauto>=0.6.8'
     ],
     entry_points={
         'console_scripts': [

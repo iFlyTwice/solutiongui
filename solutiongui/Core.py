@@ -663,50 +663,103 @@ class QuickLinksApp:
         """
         while self.monitoring:
             try:
-                # Get the current list of connected keys
-                devices = hid.enumerate()
-                new_keys = [
-                    f"{device['manufacturer_string']} {device['product_string']}"
-                    for device in devices if self.is_security_key(device)
-                ]
+                new_keys = []
+                if HAS_HID:
+                    # Enumerate devices using hid
+                    devices = hid.enumerate()
+                    new_keys = [
+                        f"{device['manufacturer_string']} {device['product_string']}"
+                        for device in devices if self.is_security_key(device)
+                    ]
+                elif HAS_PYUSB:
+                    # Enumerate devices using pyusb
+                    devices = usb.core.find(find_all=True)
+                    for device in devices:
+                        try:
+                            manufacturer = usb.util.get_string(device, device.iManufacturer)
+                            product = usb.util.get_string(device, device.iProduct)
+                            device_info = {
+                                "vendor_id": device.idVendor,
+                                "product_string": product,
+                                "manufacturer": manufacturer
+                            }
+                            if self.is_security_key(device_info):
+                                new_keys.append(f"{manufacturer} {product}")
+                        except Exception as e:
+                            logging.error(f"Error retrieving device information with pyusb: {e}")
+                            continue
 
-                # Check for added or removed keys
                 with self.update_keys_lock:
+                    # Detect added and removed keys
                     added_keys = list(set(new_keys) - set(self.connected_keys))
                     removed_keys = list(set(self.connected_keys) - set(new_keys))
+                    self.connected_keys = new_keys
 
-                    # Update the connected keys list
                     if added_keys or removed_keys:
-                        self.connected_keys = new_keys
-                        self.update_security_keys_list(new_keys)  # {{ edit_5 }}
-
-                        # Notify user of changes
+                        self.update_security_keys_list(new_keys)
                         if added_keys:
                             self.notify_key_event(added_keys, "added")
                             for key in added_keys:
-                                for device in devices:
-                                    key_name = f"{device['manufacturer_string']} {device['product_string']}"
-                                    if key_name == key:
-                                        vendor_id = device.get('vendor_id')
-                                        product_id = device.get('product_id')
-                                        logging.info(f"Detected new security key - Vendor ID: 0x{vendor_id:04X}, Product ID: 0x{product_id:04X}")
-                                        break
+                                logging.info(f"Detected new security key: {key}")
                         if removed_keys:
                             self.notify_key_event(removed_keys, "removed")
+                            for key in removed_keys:
+                                logging.info(f"Detected removed security key: {key}")
             except Exception as e:
                 logging.error(f"Error monitoring security keys: {e}")
             time.sleep(1)  # Delay to reduce CPU usage
 
-    def is_security_key(self, device):  # {{ edit_6 }}
+    def is_security_key(self, device):  # Updated method to handle both hid and pywin32
         """
         Determines if a device is a security key.
+
+        Args:
+            device (dict): Device information dictionary.
+
+        Returns:
+            bool: True if the device is a recognized security key, False otherwise.
+        """
+        known_vendors = [0x1050, 0x096e, 0x1949]  # Example vendor IDs for security keys
+        if "vendor_id" in device and device["vendor_id"] in known_vendors:
+            return True
+
+        product = device.get("product_string", "").lower()
+        key_keywords = ["yubikey", "titan", "authenticator", "zukey"]
+        return any(keyword in product for keyword in key_keywords)
+
+    def is_security_key_pywin32(self, device):  # {{ edit_6 }}
+        """
+        Determines if a device is a security key using pywin32.
         """
         known_vendors = [0x1050, 0x096e, 0x1949]  # Add known vendor IDs for security keys
-        if device.get('vendor_id') in known_vendors:
+        if device['VendorId'] in known_vendors:
             return True
         key_keywords = ["yubikey", "titan", "authenticator", "zukey"]  # Add relevant keywords
-        product = device.get("product_string", "").lower()
+        product = device['ProductName'].lower()
         return any(keyword in product for keyword in key_keywords)
+
+    def get_usb_devices_with_pywin32(self):  # {{ edit_new }}
+        """
+        Retrieves USB devices using pywin32.
+
+        Returns:
+            list: A list of dictionaries containing device information.
+        """
+        devices = []
+        try:
+            import win32com.client
+            wmi = win32com.client.GetObject("winmgmts:")
+            for usb in wmi.InstancesOf("Win32_USBHub"):
+                device = {
+                    "Manufacturer": usb.Manufacturer or "Unknown",
+                    "ProductName": usb.Name or "Unknown",
+                    "VendorId": int(usb.DeviceID.split("&")[1], 16),
+                    "ProductId": int(usb.DeviceID.split("&")[2], 16)
+                }
+                devices.append(device)
+        except Exception as e:
+            logging.error(f"Failed to retrieve USB devices with pywin32: {e}")
+        return devices
 
     def update_security_keys_list(self, keys):  # {{ edit_7 }}
         """
@@ -1382,7 +1435,7 @@ def check_dependencies():
     try:
         import hid
     except ImportError:
-        missing.append("HID Library")
+        missing.append("hidapi")
     
     if missing:
         raise EnvironmentError(f"Missing dependencies: {', '.join(missing)}")
